@@ -64,7 +64,7 @@ pipeline {
             emailext (
                 to: 'sanjanaaddankiwork@gmail.com',
                 subject: 'Pipeline Status: Success',
-                body: 'The pipeline completed successfully. Please find the build log attached for more details.',
+                body: 'The pipeline completed successfully. Please find build log attached for more details.',
                 attachLog: true
             )
         }
