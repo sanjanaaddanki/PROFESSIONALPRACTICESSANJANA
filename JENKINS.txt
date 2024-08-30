@@ -12,6 +12,16 @@ pipeline {
                 echo 'Executing unit tests to verify individual components.'
                 echo 'Executing integration tests to validate interaction between components.'
             }
+            post {
+                always {
+                    emailext (
+                        to: 'sanjanaaddankiwork@gmail.com',
+                        subject: 'Pipeline Status: Testing Completed',
+                        body: 'The testing stage has completed with status: ${currentBuild.currentResult}. Please find the build log attached for more details.',
+                        attachLog: true
+                    )
+                }
+            }
         }
         stage('Static Code Analysis') {
             steps {
@@ -21,6 +31,16 @@ pipeline {
         stage('Security Vulnerability Scan') {
             steps {
                 echo 'Conducting a security scan to detect any vulnerabilities in the code.'
+            }
+            post {
+                always {
+                    emailext (
+                        to: 'sanjanaaddankiwork@gmail.com',
+                        subject: 'Pipeline Status: Security Scan Completed',
+                        body: 'The security scan stage has completed with status: ${currentBuild.currentResult}. Please find the build log attached for more details.',
+                        attachLog: true
+                    )
+                }
             }
         }
         stage('Deploy to QA Environment') {
