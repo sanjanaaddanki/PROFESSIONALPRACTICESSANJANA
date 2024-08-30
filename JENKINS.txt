@@ -42,7 +42,7 @@ pipeline {
     post {
         success {
             emailext (
-                to: 'pramadaravipati7@gmail.com',
+                to: 'sanjanaaddankiwork@gmail.com',
                 subject: 'Pipeline Status: Success',
                 body: 'The pipeline completed successfully. Please find the build log attached for more details.',
                 attachLog: true
@@ -50,7 +50,7 @@ pipeline {
         }
         failure {
             emailext (
-                to: 'pramadaravipati7@gmail.com',
+                to: 'sanjanaaddankiwork@gmail.com',
                 subject: 'Pipeline Status: Failure',
                 body: 'The pipeline encountered an issue. Please find the build log attached for more details.',
                 attachLog: true
